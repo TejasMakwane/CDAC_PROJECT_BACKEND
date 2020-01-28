@@ -1,0 +1,6 @@
+C:\Users\l\Desktop\Project\FinalProject\MySecurityLib\bin\Debug\MySecurityLib.dll
+C:\Users\l\Desktop\Project\FinalProject\MySecurityLib\bin\Debug\MySecurityLib.pdb
+C:\Users\l\Desktop\Project\FinalProject\MySecurityLib\obj\Debug\MySecurityLib.csprojResolveAssemblyReference.cache
+C:\Users\l\Desktop\Project\FinalProject\MySecurityLib\obj\Debug\MySecurityLib.csproj.CoreCompileInputs.cache
+C:\Users\l\Desktop\Project\FinalProject\MySecurityLib\obj\Debug\MySecurityLib.dll
+C:\Users\l\Desktop\Project\FinalProject\MySecurityLib\obj\Debug\MySecurityLib.pdb

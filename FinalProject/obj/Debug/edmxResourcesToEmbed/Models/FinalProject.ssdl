@@ -1,0 +1,398 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FinalProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="T_Booking">
+    <Key>
+      <PropertyRef Name="BookingId" />
+    </Key>
+    <Property Name="BookingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="BookingStatus" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SloatId" Type="int" Nullable="false" />
+    <Property Name="BookingDate" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Cart">
+    <Key>
+      <PropertyRef Name="CartId" />
+    </Key>
+    <Property Name="CartId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="SeatId" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="Amount" Type="float" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_ErrorLogs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Source" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Method" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="ErrorOn" Type="datetime" Nullable="false" />
+    <Property Name="Message" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="StackTrace" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Movie">
+    <Key>
+      <PropertyRef Name="MovieId" />
+    </Key>
+    <Property Name="MovieId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Director" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Movie_Category" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cast" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Duration" Type="datetime" Nullable="false" />
+    <Property Name="Language" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_OTP_Details">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="OTP" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="GeneratedOn" Type="datetime" Nullable="false" />
+    <Property Name="ValidTill" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_PasswordHistoryLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="ChangedOn" Type="datetime" Nullable="false" />
+    <Property Name="OldPassword" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NewPassword" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Ratting">
+    <Key>
+      <PropertyRef Name="RattingId" />
+    </Key>
+    <Property Name="RattingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="MovieId" Type="int" Nullable="false" />
+    <Property Name="Rating" Type="float" Nullable="false" />
+    <Property Name="Comment" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Seat">
+    <Key>
+      <PropertyRef Name="SeatId" />
+    </Key>
+    <Property Name="SeatId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SeatRow" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SeatNumber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TheaterId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_SeatBooked">
+    <Key>
+      <PropertyRef Name="SeatBookId" />
+    </Key>
+    <Property Name="SeatBookId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SeatId" Type="int" Nullable="false" />
+    <Property Name="BookingId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Sloats">
+    <Key>
+      <PropertyRef Name="SloatId" />
+    </Key>
+    <Property Name="SloatId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sloat_StartTime" Type="time" Precision="7" Nullable="false" />
+    <Property Name="TheaterId" Type="int" Nullable="false" />
+    <Property Name="MovieId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Theater">
+    <Key>
+      <PropertyRef Name="TheaterId" />
+    </Key>
+    <Property Name="TheaterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TheaterName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TheaterAddress" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmailId" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MobileNo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsOnline" Type="bit" Nullable="false" />
+    <Property Name="IsLocked" Type="bit" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_T_Booking_T_Sloats">
+    <End Role="T_Sloats" Type="Self.T_Sloats" Multiplicity="1" />
+    <End Role="T_Booking" Type="Self.T_Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Sloats">
+        <PropertyRef Name="SloatId" />
+      </Principal>
+      <Dependent Role="T_Booking">
+        <PropertyRef Name="SloatId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_Booking_T_Users">
+    <End Role="T_Users" Type="Self.T_Users" Multiplicity="1" />
+    <End Role="T_Booking" Type="Self.T_Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="T_Booking">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_Cart_T_Seat">
+    <End Role="T_Seat" Type="Self.T_Seat" Multiplicity="1" />
+    <End Role="T_Cart" Type="Self.T_Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Seat">
+        <PropertyRef Name="SeatId" />
+      </Principal>
+      <Dependent Role="T_Cart">
+        <PropertyRef Name="SeatId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_Cart_T_Users">
+    <End Role="T_Users" Type="Self.T_Users" Multiplicity="1" />
+    <End Role="T_Cart" Type="Self.T_Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="T_Cart">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_OTP_Details_T_Users">
+    <End Role="T_Users" Type="Self.T_Users" Multiplicity="1" />
+    <End Role="T_OTP_Details" Type="Self.T_OTP_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="T_OTP_Details">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_PasswordHistoryLog_T_Users">
+    <End Role="T_Users" Type="Self.T_Users" Multiplicity="1" />
+    <End Role="T_PasswordHistoryLog" Type="Self.T_PasswordHistoryLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="T_PasswordHistoryLog">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_Ratting_T_Movie">
+    <End Role="T_Movie" Type="Self.T_Movie" Multiplicity="1" />
+    <End Role="T_Ratting" Type="Self.T_Ratting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Movie">
+        <PropertyRef Name="MovieId" />
+      </Principal>
+      <Dependent Role="T_Ratting">
+        <PropertyRef Name="MovieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_Ratting_T_Users">
+    <End Role="T_Users" Type="Self.T_Users" Multiplicity="1" />
+    <End Role="T_Ratting" Type="Self.T_Ratting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="T_Ratting">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_Seat_T_Theater">
+    <End Role="T_Theater" Type="Self.T_Theater" Multiplicity="1" />
+    <End Role="T_Seat" Type="Self.T_Seat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Theater">
+        <PropertyRef Name="TheaterId" />
+      </Principal>
+      <Dependent Role="T_Seat">
+        <PropertyRef Name="TheaterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_SeatBooked_T_Booking">
+    <End Role="T_Booking" Type="Self.T_Booking" Multiplicity="1" />
+    <End Role="T_SeatBooked" Type="Self.T_SeatBooked" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Booking">
+        <PropertyRef Name="BookingId" />
+      </Principal>
+      <Dependent Role="T_SeatBooked">
+        <PropertyRef Name="BookingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_SeatBooked_T_Seat">
+    <End Role="T_Seat" Type="Self.T_Seat" Multiplicity="1" />
+    <End Role="T_SeatBooked" Type="Self.T_SeatBooked" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Seat">
+        <PropertyRef Name="SeatId" />
+      </Principal>
+      <Dependent Role="T_SeatBooked">
+        <PropertyRef Name="SeatId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_Sloats_T_Movie">
+    <End Role="T_Movie" Type="Self.T_Movie" Multiplicity="1" />
+    <End Role="T_Sloats" Type="Self.T_Sloats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Movie">
+        <PropertyRef Name="MovieId" />
+      </Principal>
+      <Dependent Role="T_Sloats">
+        <PropertyRef Name="MovieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_Sloats_T_Theater">
+    <End Role="T_Theater" Type="Self.T_Theater" Multiplicity="1" />
+    <End Role="T_Sloats" Type="Self.T_Sloats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Theater">
+        <PropertyRef Name="TheaterId" />
+      </Principal>
+      <Dependent Role="T_Sloats">
+        <PropertyRef Name="TheaterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_Theater_T_Users">
+    <End Role="T_Users" Type="Self.T_Users" Multiplicity="1" />
+    <End Role="T_Theater" Type="Self.T_Theater" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="T_Theater">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_T_Users_T_Roles">
+    <End Role="T_Roles" Type="Self.T_Roles" Multiplicity="1" />
+    <End Role="T_Users" Type="Self.T_Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="T_Users">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="proc_AddRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="proc_ModifyRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleId" Type="int" Mode="In" />
+    <Parameter Name="RoleName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="proc_RemoveRole" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoleId" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="FinalProjectModelStoreContainer">
+    <EntitySet Name="T_Booking" EntityType="Self.T_Booking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Cart" EntityType="Self.T_Cart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_ErrorLogs" EntityType="Self.T_ErrorLogs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Movie" EntityType="Self.T_Movie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_OTP_Details" EntityType="Self.T_OTP_Details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_PasswordHistoryLog" EntityType="Self.T_PasswordHistoryLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Ratting" EntityType="Self.T_Ratting" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Roles" EntityType="Self.T_Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Seat" EntityType="Self.T_Seat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_SeatBooked" EntityType="Self.T_SeatBooked" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Sloats" EntityType="Self.T_Sloats" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Theater" EntityType="Self.T_Theater" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Users" EntityType="Self.T_Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_T_Booking_T_Sloats" Association="Self.FK_T_Booking_T_Sloats">
+      <End Role="T_Sloats" EntitySet="T_Sloats" />
+      <End Role="T_Booking" EntitySet="T_Booking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_Booking_T_Users" Association="Self.FK_T_Booking_T_Users">
+      <End Role="T_Users" EntitySet="T_Users" />
+      <End Role="T_Booking" EntitySet="T_Booking" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_Cart_T_Seat" Association="Self.FK_T_Cart_T_Seat">
+      <End Role="T_Seat" EntitySet="T_Seat" />
+      <End Role="T_Cart" EntitySet="T_Cart" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_Cart_T_Users" Association="Self.FK_T_Cart_T_Users">
+      <End Role="T_Users" EntitySet="T_Users" />
+      <End Role="T_Cart" EntitySet="T_Cart" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_OTP_Details_T_Users" Association="Self.FK_T_OTP_Details_T_Users">
+      <End Role="T_Users" EntitySet="T_Users" />
+      <End Role="T_OTP_Details" EntitySet="T_OTP_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_PasswordHistoryLog_T_Users" Association="Self.FK_T_PasswordHistoryLog_T_Users">
+      <End Role="T_Users" EntitySet="T_Users" />
+      <End Role="T_PasswordHistoryLog" EntitySet="T_PasswordHistoryLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_Ratting_T_Movie" Association="Self.FK_T_Ratting_T_Movie">
+      <End Role="T_Movie" EntitySet="T_Movie" />
+      <End Role="T_Ratting" EntitySet="T_Ratting" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_Ratting_T_Users" Association="Self.FK_T_Ratting_T_Users">
+      <End Role="T_Users" EntitySet="T_Users" />
+      <End Role="T_Ratting" EntitySet="T_Ratting" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_Seat_T_Theater" Association="Self.FK_T_Seat_T_Theater">
+      <End Role="T_Theater" EntitySet="T_Theater" />
+      <End Role="T_Seat" EntitySet="T_Seat" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_SeatBooked_T_Booking" Association="Self.FK_T_SeatBooked_T_Booking">
+      <End Role="T_Booking" EntitySet="T_Booking" />
+      <End Role="T_SeatBooked" EntitySet="T_SeatBooked" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_SeatBooked_T_Seat" Association="Self.FK_T_SeatBooked_T_Seat">
+      <End Role="T_Seat" EntitySet="T_Seat" />
+      <End Role="T_SeatBooked" EntitySet="T_SeatBooked" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_Sloats_T_Movie" Association="Self.FK_T_Sloats_T_Movie">
+      <End Role="T_Movie" EntitySet="T_Movie" />
+      <End Role="T_Sloats" EntitySet="T_Sloats" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_Sloats_T_Theater" Association="Self.FK_T_Sloats_T_Theater">
+      <End Role="T_Theater" EntitySet="T_Theater" />
+      <End Role="T_Sloats" EntitySet="T_Sloats" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_Theater_T_Users" Association="Self.FK_T_Theater_T_Users">
+      <End Role="T_Users" EntitySet="T_Users" />
+      <End Role="T_Theater" EntitySet="T_Theater" />
+    </AssociationSet>
+    <AssociationSet Name="FK_T_Users_T_Roles" Association="Self.FK_T_Users_T_Roles">
+      <End Role="T_Roles" EntitySet="T_Roles" />
+      <End Role="T_Users" EntitySet="T_Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

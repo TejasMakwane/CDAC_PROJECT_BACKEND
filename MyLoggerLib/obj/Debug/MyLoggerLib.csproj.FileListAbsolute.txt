@@ -1,0 +1,6 @@
+C:\Users\l\Desktop\Project\FinalProject\MyLoggerLib\bin\Debug\MyLoggerLib.dll
+C:\Users\l\Desktop\Project\FinalProject\MyLoggerLib\bin\Debug\MyLoggerLib.pdb
+C:\Users\l\Desktop\Project\FinalProject\MyLoggerLib\obj\Debug\MyLoggerLib.csprojResolveAssemblyReference.cache
+C:\Users\l\Desktop\Project\FinalProject\MyLoggerLib\obj\Debug\MyLoggerLib.csproj.CoreCompileInputs.cache
+C:\Users\l\Desktop\Project\FinalProject\MyLoggerLib\obj\Debug\MyLoggerLib.dll
+C:\Users\l\Desktop\Project\FinalProject\MyLoggerLib\obj\Debug\MyLoggerLib.pdb

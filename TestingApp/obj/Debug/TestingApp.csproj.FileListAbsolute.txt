@@ -1,0 +1,9 @@
+C:\Users\l\Desktop\Project\FinalProject\TestingApp\bin\Debug\TestingApp.exe.config
+C:\Users\l\Desktop\Project\FinalProject\TestingApp\bin\Debug\TestingApp.exe
+C:\Users\l\Desktop\Project\FinalProject\TestingApp\bin\Debug\TestingApp.pdb
+C:\Users\l\Desktop\Project\FinalProject\TestingApp\bin\Debug\MyLoggerLib.dll
+C:\Users\l\Desktop\Project\FinalProject\TestingApp\bin\Debug\MyLoggerLib.pdb
+C:\Users\l\Desktop\Project\FinalProject\TestingApp\obj\Debug\TestingApp.csprojResolveAssemblyReference.cache
+C:\Users\l\Desktop\Project\FinalProject\TestingApp\obj\Debug\TestingApp.csproj.CoreCompileInputs.cache
+C:\Users\l\Desktop\Project\FinalProject\TestingApp\obj\Debug\TestingApp.exe
+C:\Users\l\Desktop\Project\FinalProject\TestingApp\obj\Debug\TestingApp.pdb

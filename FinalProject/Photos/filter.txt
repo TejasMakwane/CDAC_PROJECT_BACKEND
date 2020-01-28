@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Diagnostics;
+
+namespace DemoMVC_crud.Filters
+{
+    public class TestFilter:ActionFilterAttribute
+    {
+        public override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            string msgFormat = "/{0}/{1} is called";
+
+            string controller = filterContext.ActionDescriptor.ControllerDescriptor.ControllerName;
+
+            string method = filterContext.ActionDescriptor.ActionName;
+
+            string msg = string.Format(msgFormat, controller, method);
+            Debug.WriteLine(msg);
+        }
+        public override void OnActionExecuted(ActionExecutedContext filterContext)
+        {
+            Debug.WriteLine("Method Exicuted");
+         }
+        public override void OnResultExecuting(ResultExecutingContext filterContext)
+        {
+            Debug.WriteLine("UI is about get to process");
+        }
+        public override void OnResultExecuted(ResultExecutedContext filterContext)
+        {
+            Debug.WriteLine("UI is about to processed");
+
+        }
+    }
+}
